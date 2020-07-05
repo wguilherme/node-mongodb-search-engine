@@ -19,7 +19,7 @@ function simplify(text) {
 router.get("/", function (req, res, next) {
   if (!req.query.q)
     return res.render("index", {
-      title: "Motor de Busca",
+      title: "NodeMongo Search",
       movies: [],
       query: "",
     });
@@ -33,7 +33,7 @@ router.get("/", function (req, res, next) {
       .then((cursor) => cursor.toArray())
       .then((movies) => {
         return res.render("index", {
-          title: "Motor de Busca",
+          title: "NodeMongo Search",
           movies,
           query: req.query.q,
         });

@@ -18,33 +18,63 @@
   </head>
   <body>
     <div class="container">
-      <h1><%= title %></h1>
-      <p>Welcome to <%= title %></p>
-      <form action="" method="GET">
-        <div class="btn-group" role="group">
-          <input
-            type="text"
-            class="form-control"
-            name="q"
-            value="<%= query %>"
-          />
-          <input type="submit" value="Pesquisar" class="btn btn-primary" />
-        </div>
-      </form>
+      <div class="row h-100">
+        <div class="col-sm-12 align-self-center">
+          <h2 class="text-center mb-5"><%= title %></h2>
 
-      <hr />
-      <ul class="list-group">
-        <% for(let i=0; i < movies.length; i++) { %>
-        <li class="list-group-item">
-          <strong><%= movies[i].title %></strong> (<%= movies[i].year %>)
-          <div class="text-muted">
-            Starring <%= movies[i].cast %> and directed by <%=
-            movies[i].directors %>.
-          </div>
-        </li>
-        <% } %>
-      </ul>
+          <form action="" method="GET">
+            <div role="group" class="input-group">
+              <input
+                class="form-control"
+                type="text"
+                placeholder="Search here"
+                class="form-control"
+                name="q"
+                value="<%= query %>"
+              />
+              <div class="input-group-append">
+                <input
+                  type="submit"
+                  name=""
+                  id=""
+                  class="btn btn-primary input-group-append"
+                  value="Pesquisar"
+                />
+              </div>
+            </div>
+          </form>
+
+          <hr />
+
+          <ul class="list-group">
+            <% for(let i=0; i < movies.length; i++) { %>
+            <li class="list-group-item">
+              <strong><%= movies[i].title %></strong> (<%= movies[i].year %>)
+              <div class="text-muted">
+                Starring <%= movies[i].cast %> and directed by <%=
+                movies[i].directors %>.
+              </div>
+            </li>
+            <% } %>
+          </ul>
+        </div>
+      </div>
     </div>
+
+    <style>
+      html,
+      body {
+        height: 100% !important;
+      }
+
+      /* CSS only for examples not required for centering */
+      .container {
+        height: 100% !important;
+        max-width: 600px;
+      }
+
+      /* show border around full height container */
+    </style>
 
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
