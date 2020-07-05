@@ -17,9 +17,35 @@
     />
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <div class="container">
+      <h1><%= title %></h1>
+      <p>Welcome to <%= title %></p>
+      <form action="" method="GET">
+        <div class="btn-group" role="group">
+          <input
+            type="text"
+            class="form-control"
+            name="q"
+            value="<%= query %>"
+          />
+          <input type="submit" value="Pesquisar" class="btn btn-primary" />
+        </div>
+      </form>
+
+      <hr />
+      <ul class="list-group">
+        <% for(let i=0; i < movies.length; i++) { %>
+        <li class="list-group-item">
+          <strong><%= movies[i].title %></strong> (<%= movies[i].year %>)
+          <div class="text-muted">
+            Starring <%= movies[i].cast %> and directed by <%=
+            movies[i].directors %>.
+          </div>
+        </li>
+        <% } %>
+      </ul>
+    </div>
+
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
       integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
